@@ -3,6 +3,10 @@
 
 A small utility written in Python 3.10 to create CSV sheets which contain your Amazon Vine orders and **current** prices.
 
+## Important Disclaimer
+
+**This code is for demonstration and learning purposes only. Amazon expressly states in its general terms and conditions that it is not permitted to automatically access or evaluate Amazon content using scripts or robots. I would therefore like to expressly point out at this point that I do not encourage this and that the script is not intended for such purposes.**
+
 ## Acknowledgements
 
 - [readme.so](https://readme.so) because they take the pain of out writing READMEs
@@ -12,10 +16,6 @@ A small utility written in Python 3.10 to create CSV sheets which contain your A
 ### How does this work?
 
 The script programmatically opens your Chrome browser (which you can log in to Amazon, if you're not already logged in) and looks through your orders page-for-page. It then takes the retrieved product URLs and uses them to retrieve current prices for you.
-
-### Will this get me kicked out of Vine?
-
-If they find out that you use it, according to their terms, you _can_ get kicked out because you are not allowed to use any kind of automation to visit Amazon (including Vine). However, the script doesn't behave aggressively and uses a legit user agent. This way, the traffic you generate through the script is not malicious in any way.
 
 ### I don't understand this stuff
 

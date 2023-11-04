@@ -74,3 +74,7 @@ The script was written in about 1 hour, so it currently has its limitations:
 Work in progress, but you can already use it if you want to.
 
 In some cases, the main script is not able to determine a current price because the product is listed as "Currently unavailable". In this case, the script will mark the product with  `0,00€` in the CSV file. You can then manually look up the product and enter the price yourself, or you can soon run `python unavailable.py` which will open a Chrome window and check all products with price `0,00€`, which are marked as unavailable when they're not listed anymore. You may then manually look up historic prices on camelcamelcamel or keepa and enter it in the CSV file.
+
+## License
+
+See [LICENSE](LICENSE). This project is licensed under the terms of the MIT license. In easy words, you can do whatever you want with this code, but you may not hold me liable for any damage caused by this code.

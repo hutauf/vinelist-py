@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """vinelist-py
 Usage: python3 main.py
 
@@ -5,15 +6,16 @@ vinelist-py is a script that scrapes the Amazon Vine website and retrieves all p
 Note that you must be logged in to Amazon for this to work.
 It is strongly recommended to check if your chromedriver version matches your Chrome version.
 """
+import os
+import sys
+import argparse
+import time
 from selenium.webdriver import Chrome, ChromeService
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
-import os
-import argparse
-import time
 
 
 class Product:
@@ -96,7 +98,7 @@ def main():
             # use the chromedriver that is installed by chromedriver-py
             from chromedriver_py import binary_path
 
-            chromedriver_path = binary_path or chromedriver_path
+            chromedriver_path = binary_path
         except:
             log(
                 "WARN",
@@ -109,7 +111,7 @@ def main():
                     + chromedriver_path
                     + ", please provide the correct path to chromedriver with --chromedriver-path",
                 )
-                exit(1)
+                sys.exit(1)
 
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
@@ -211,7 +213,7 @@ def main():
     log("INFO", "Successfully retrieved " + str(len(products)) + " products")
     log("INFO", "Writing products to vine.csv")
     # write the products to a CSV file
-    with open("vine.csv", "w") as f:
+    with open("vine.csv", "w", encoding="UTF-8") as f:
         f.write("Title;Link;Order Date;Price\n")
         for product in products:
             f.write(product.csv() + "\n")
@@ -221,9 +223,10 @@ def main():
 
 def get_user_agent():
     """Returns a random user agent string from https://user-agents.net/random"""
-    import requests, re
+    import requests
+    import re
 
-    res = requests.get("https://user-agents.net/random")
+    res = requests.get("https://user-agents.net/random", timeout=5)
     return (
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
         if res.status_code != 200

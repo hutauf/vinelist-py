@@ -1,0 +1,35 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-yaml
+      - id: detect-aws-credentials
+        args:
+          - --allow-missing-credentials
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-encoding-pragma
+      - id: name-tests-test
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-bandit
+    rev: v1.0.6
+    hooks:
+      - id: python-bandit-vulnerability-check
+        args: [--recursive, clumper]
+  - repo: local
+    hooks:
+      - id: pylint
+        always_run: true
+        entry: pylint main.py --max-line-length=200 --fail-under=8.0 --disable=import-error --disable=missing-function-docstring --disable=invalid-name --disable=missing-module-docstring --disable=logging-fstring-interpolation --disable=raise-missing-from --disable=inconsistent-return-statements --disable=no-else-return
+        language: system
+        name: pylint
+        pass_filenames: false

@@ -1,4 +1,4 @@
-selenium==4.15.0
 chromedriver==2.24.1
 # This version will differ for you. Find the one that matches your chrome version.
 chromedriver-py==119.0.6045.105
+selenium==4.15.0

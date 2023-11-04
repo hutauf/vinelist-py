@@ -66,7 +66,7 @@ python main.py \
 The script was written in about 1 hour, so it currently has its limitations:
 
 - Products which come in different sizes/colors may not show prices in the CSV file. This only happens on products which do not have a selected size/color when the product page is visited, so a price is not shown and can not be scraped.
-- If you have many products to scan, the scan takes some time. Each order page takes about 1-2 seconds to scan in about 10 products, and each product page is going to need about 2-3 seconds. However, I've already scanned accounts with 1000+ products and had a nice walk in the meantime :-)
+- If you have many products to scan, the scan takes some time. Each order page takes about 1-2 seconds to scan in about 10 products, and each product page is going to need about 2-3 seconds.
 - The prices shown are **current** prices. They do not match the price from the date you ordered the product. I repeat, **this script does _not_ retrieve historic prices right now.**
 
 ## Upcoming: Marking unavailable products
